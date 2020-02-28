@@ -80,14 +80,16 @@ class    void insertar(string palabra,string remplazo){
             //esto porque es el primer nodo de la lista
             this->size++;
         }else{
-         //Decimos que si no, el apuntador siguiente del ulitmo nodo ahora apuntara al            nuevo nodo 
+          //Decimos que si no, el apuntador siguiente del ulitmo nodo ahora apuntara al nuevo nodo 
             this->ultimo->setSiguiente(n); 
-            this->ultimo=n;  // ultimo sera ahora el nuevo nodo, esto porque agregamos               al final de la lista
+            this->ultimo=n;  // ultimo sera ahora el nuevo nodo, esto porque agregamos al final de la lista
             this->size++;
         }
     }
 
 ```
+
+
 
 
 
