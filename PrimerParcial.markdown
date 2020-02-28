@@ -17,16 +17,20 @@ es aquella que el apuntador unicamente va hacia siguiente
 + Creamos nuestra clase nodo
 
 ```c++
-class NodoS{
+class Nodo{
 public:
     NodoS(string palabra_,string remplazar_){
-        siguiente=0;
+        siguiente=0;  //Solo tendra un apuntador a siguiente
         palabra = palabra_;
         remplazar=remplazar_;
     }
-    NodoS *getSiguiente(){return siguiente;}
+    
+    Nodo *getSiguiente(){return siguiente;}
+    
     void setSiguiente(NodoS *n){siguiente=n;}
+    
     string getPalabra(){return palabra;}
+    
     string getRemplazar(){return remplazar;}
 
     void setPalabra(string palabra_){
@@ -38,8 +42,9 @@ public:
 
 
 private:
-    NodoS* siguiente;
-    string palabra;
+    Nodo* siguiente;
+    //En este ejemplo tendremos que el nodo tendra dos atributos de tipo string
+    string palabra;  
     string remplazar;
 };
 
