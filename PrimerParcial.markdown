@@ -91,6 +91,54 @@ class    void insertar(string palabra,string remplazo){
 
 
 
++ Metodo borrar por poscion en una lista doble
+```c++
+void borrarPos(int pos){
+        if(this->primero!=0){//se realiza la validación que la cabeza no esté vacía
+            if(pos >= 0 && pos<= this->size){ // se valida que se desee eliminar un elemento existente
+                if(pos==0 && this->size ==1){ //validacion para que si se desea eliminar el primero y el tamaño es
+                    primero = 0;                  // el nodo incial se declara vacio
+                    ultimo = 0;                   // el nodo final se declara vacio
+                    size = 0;                   // el tamaño de la lista es
+                }
+                else if(pos==0){              // si desea eliminar el primero
+                    Nodo *aux = this->primero->getSiguiente();   // instanciamos un nodo auxiliar que obtenga el siguiente del primero
+                    primero->setSiguiente(0);                    // quitamos el puntero a siguiente de la cabeza
+                    primero = aux;                          //el primero elemento de la lista será el auxiliar
+                    primero->setAnterior(0);                  // el anterior del primero será null
+                    this->size--;                         //decremento al tamaño de la lista
+
+                }
+                else if(pos == this->size-1){          //si desea eliminar el ultimo elemento de la lista
+                    Nodo *aux = this->ultimo->getAnterior(); // instanciamos un nodo auxiliar que obtenga el anterior del ultimo
+                    ultimo = aux;                          // ahora decimos que el ultimo de la lista será aux
+                    ultimo->setSiguiente(0);                     //ahora el puntero del ultimo nodo apunta a null
+                    this->size--;                       // decremento al tamaño de la lista
+                }
+                else if(pos>0 && pos < this->size-1){ //si el elemento que desea eliminar no es el ultimo ni el primero
+                    Nodo *aux = this->primero;              //creamos un nodo auxiliar que tenga la cabeza de la lista
+                    int x = 0;                            // declaramos variable para obtener posicion deseada
+                    while(aux!=0){                        //recorremos la lista, mientras no sea vacia
+
+
+                        if(x==pos){                     //validacion  para encontrar la posicion
+                            break;                        //salimos de while
+                        }// incremento para encontrar posicion
+                        aux = aux->getSiguiente();              // obtenemos el nodo el cual se desea eliminar
+                        x++;
+                    }
+                    aux->getAnterior()->setSiguiente(aux->getSiguiente());   // decimos que el anterior del <a eliminar> tendrá de siguiente el <eliminar>.siguiente
+                    aux->getSiguiente()->setAnterior(aux->getAnterior()); // ahora decimos que el siguiente del <a eliminar> tendra de anterior el <eliminar>.anterior
+                    aux->setSiguiente(0);                             //de desapunta el puntero siguiente a null
+                    aux->setAnterior(0);                            // se desapunta el puntero anterior a null
+                    size--;                                       // ya que no utilizo destructor, no se elimina completamente de la memorio pero
+                }                                                  // se desvincula de la lista, y esta ya no se queda guardada en ella
+            }                                                     // en otras palaabras queda en el aire
+        }
+    }
+
+```
+
 
 
 
