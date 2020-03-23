@@ -140,5 +140,37 @@ void borrarPos(int pos){
 ```
 
 
++ Metodo para xml
+```c#
+public void imprimirTokens(LinkedList<Token> lista){
+              using (StreamWriter outputFile = new StreamWriter("C:\\imagenes\\pruebita.xml"))
+               {             
+                  outputFile.WriteLine("<ListaTokens>" + "\r\n" );
+
+                foreach (Token item in lista)
+                {
+                    if (crear == true)
+                    {
+                        valores.AddRange(new String[] { item.GetVal() });
+                    }
+                    outputFile.WriteLine("  <Token>" + "\r\n" +                
+                  "     <Nombre>" + item.GetTipo() + "</Nombre>" + "\r\n" +
+                  "     <Valor>" + item.GetVal() + "</Valor>" + "\r\n" +
+                  "     <Fila>" + item.GetFila() + "</Fila>" + "\r\n" +
+                  "     <Columna>" + item.GetColumna() + "</Columna>" + "\r\n" +
+                   "  </Token>" + "\r\n"
+                     );
+
+                }
+
+                outputFile.WriteLine(
+                "</ListaTokens>");
+
+
+            }
+        }
+```
+
+
 
 
