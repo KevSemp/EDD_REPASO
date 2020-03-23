@@ -149,10 +149,7 @@ public void imprimirTokens(LinkedList<Token> lista){
 
                 foreach (Token item in lista)
                 {
-                    if (crear == true)
-                    {
-                        valores.AddRange(new String[] { item.GetVal() });
-                    }
+                  
                     outputFile.WriteLine("  <Token>" + "\r\n" +                
                   "     <Nombre>" + item.GetTipo() + "</Nombre>" + "\r\n" +
                   "     <Valor>" + item.GetVal() + "</Valor>" + "\r\n" +
